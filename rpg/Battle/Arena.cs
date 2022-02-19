@@ -98,6 +98,9 @@ namespace rpg.Battle
             Thread.Sleep(2000);
             Console.Clear();
 
+            hero.Restore(restoreHero, restorePower);
+            hero2.Restore(restoreHero2, restorePower2);
+
             if (boss.LifePoints > 0)
             {
                 Console.Write("Your Team are defeat.");
@@ -105,12 +108,10 @@ namespace rpg.Battle
                 Console.WriteLine($"{boss.Name} Wins!!!");
                 Thread.Sleep(2000);
                 Console.WriteLine("Game Over!");
-                boss.Restore(restoreBoss, restorePowerB);
+                
             }
             else
             {
-                hero.Restore(restoreHero, restorePower);
-                hero2.Restore(restoreHero2, restorePower2);
 
                 Console.WriteLine("VICTORY!!!");
                 Thread.Sleep(2000);
