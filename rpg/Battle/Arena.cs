@@ -22,20 +22,49 @@ namespace rpg.Battle
             int restoreHero2 = hero2.LifePoints;
             int restorePower2 = hero2.Power;
             int restoreBoss = boss.LifePoints;
-            int restorePowerB = boss.Power;
+            var str = new String("L O A D I N G . . .").Split();
+            foreach (string i in str)
+            {
+                Console.Write(i);
+                Thread.Sleep(250);
+            }
+            Console.WriteLine(" ");
+            Console.WriteLine("Opponent's Status: ");
+            Console.WriteLine(boss);
+            Thread.Sleep(5000);
+
+            Console.Clear();
+
             Console.WriteLine($"{hero.Name} & {hero2.Name} x {boss.Name}");
             do
             {
-               
+
                 Console.WriteLine(" ");
                 Console.WriteLine($"Round {round}");
                 Console.WriteLine($"{hero.Name} Life= {hero.LifePoints} / {restoreHero}");
                 Console.WriteLine($"{hero2.Name} Life= {hero2.LifePoints} / {restoreHero2}");
                 Console.WriteLine($"{boss.Name} Life= {boss.LifePoints} / {restoreBoss}");
 
+
+                if ((hero.LifePoints <= 0))
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine($"{hero.Name} is out of combat!");
+                    Console.WriteLine("");
+                    hero.Defeat();
+                    Thread.Sleep(1000);
+                }
+                if ((hero2.LifePoints <= 0))
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine($"{hero2.Name} is out of combat!");
+                    Console.WriteLine("");
+                    hero2.Defeat();
+                    Thread.Sleep(1000);
+                }
                 if (round % 2 != 0)
                 {
-                   
+
                     if (hero.LifePoints > 0)
                     {
                         boss.Damage(hero.Power);
@@ -61,14 +90,14 @@ namespace rpg.Battle
                 {
                     if (hero2.LifePoints > 0)
                     {
-                    boss.Damage(hero.Power);
-                    Thread.Sleep(2000);
+                        boss.Damage(hero.Power);
+                        Thread.Sleep(2000);
 
-                    boss.Damage(hero2.Power);
-                    Thread.Sleep(2000);
+                        boss.Damage(hero2.Power);
+                        Thread.Sleep(2000);
 
-                    hero2.Damage(boss.Power);
-                    Thread.Sleep(2000);
+                        hero2.Damage(boss.Power);
+                        Thread.Sleep(2000);
                     }
                     else
                     {
@@ -79,19 +108,8 @@ namespace rpg.Battle
                         Thread.Sleep(2000);
                     }
                 }
+
                 round++;
-                if ((hero.LifePoints <= 0))
-                {
-                    Console.WriteLine($"{hero.Name} is out of combat!");
-                    hero.Defeat();
-                    Thread.Sleep(1000);
-                }
-                if ((hero2.LifePoints <= 0))
-                {
-                    Console.WriteLine($"{hero2.Name} is out of combat!");
-                    hero2.Defeat();
-                    Thread.Sleep(1000);
-                }
 
             } while ((hero.LifePoints >= 0 || hero2.LifePoints >= 0) && boss.LifePoints >= 0);
 
@@ -104,17 +122,25 @@ namespace rpg.Battle
             if (boss.LifePoints > 0)
             {
                 Console.Write("Your Team are defeat.");
+
                 Thread.Sleep(2000);
+                Console.WriteLine(" ");
+
                 Console.WriteLine($"{boss.Name} Wins!!!");
                 Thread.Sleep(2000);
                 Console.WriteLine("Game Over!");
-                
+
             }
             else
             {
-
-                Console.WriteLine("VICTORY!!!");
+                str = new String("V I C T O R Y ! ! ! ").Split();
+                foreach (string i in str)
+                {
+                    Console.Write(i);
+                    Thread.Sleep(250);
+                }
                 Thread.Sleep(2000);
+                Console.WriteLine(" ");
 
                 Console.WriteLine("Your team is really strong");
                 Thread.Sleep(2000);
