@@ -67,7 +67,7 @@ namespace rpg.Battle
                     boss.Damage(hero2.Power);
                     Thread.Sleep(2000);
 
-                    hero2.Damage(hero2.Power);
+                    hero2.Damage(boss.Power);
                     Thread.Sleep(2000);
                     }
                     else
@@ -86,14 +86,14 @@ namespace rpg.Battle
                     hero.Defeat();
                     Thread.Sleep(1000);
                 }
-                else if ((hero2.LifePoints <= 0))
+                if ((hero2.LifePoints <= 0))
                 {
                     Console.WriteLine($"{hero2.Name} is out of combat!");
                     hero2.Defeat();
                     Thread.Sleep(1000);
                 }
 
-            } while ((hero.LifePoints >= 0 && hero2.LifePoints >= 0) || boss.LifePoints >= 0);
+            } while ((hero.LifePoints >= 0 || hero2.LifePoints >= 0) && boss.LifePoints >= 0);
 
             Thread.Sleep(2000);
             Console.Clear();
