@@ -15,10 +15,5 @@ namespace rpg.Entities
             Power = 4;
         }
 
-        //public override string Attack()
-        //{
-        //    return this.Name + " lança feitiço e causa: " + Power + " de dano;";
-        //}
-
     }
 }

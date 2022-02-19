@@ -15,10 +15,5 @@ namespace rpg.Entities
             Power = 2;
         }
 
-        //public override string Attack()
-        //{
-        //    return this.Name + " desfere golpe de espada e causa: " + Power + " de dano;";
-        //}
-
     }
 }

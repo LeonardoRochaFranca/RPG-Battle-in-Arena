@@ -22,10 +22,5 @@ namespace rpg.Entities
             Power += Level;
         }
 
-        //public override string Attack()
-        //{
-        //    return this.Name + " ataca e causa: " + Power + " de dano;";
-        //}
-
     }
 }

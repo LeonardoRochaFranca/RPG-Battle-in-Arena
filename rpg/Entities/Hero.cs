@@ -45,14 +45,6 @@ namespace rpg.Entities
             this.LifePoints = restoreLife;
             this.Power = restorePower;
         }
-        //public virtual string Attack()
-        //{
-        //   return this.Name + " " + Power ;
-        //}
-        //public void Ultimate(int power)
-        //{
-        //    this.LifePoints -= power + 1 ;
-        //}
 
         public void Defeat()
         {
